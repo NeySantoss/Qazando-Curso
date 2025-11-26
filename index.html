@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   🔒 Regras de Negócio:
+
+Campos obrigatórios:
+
+
+
+    Nome (mínimo 3 caracteres)
+    Ney
+
+    E-mail (formato válido, único no sistema)
+    neyteste@gmail.com
+
+    Senha (mínimo 6 caracteres)
+    123456
+
+
+
+    Validação de e-mail: neyteste@gmail.com
+
+
+Deve seguir padrão válido (ex: nome@dominio.com)
+
+Não pode estar já cadastrado no sistema
+
+Senha:
+
+Deve ter no mínimo 6 caracteres
+
+Pode ser exibida com input do tipo password
+
+Botão “Cadastrar”:
+
+Deve permanecer desabilitado enquanto os campos obrigatórios não forem preenchidos corretamente
+
+Ao clicar, deve:
+
+Enviar os dados via API (POST /users ou similar)
+
+Exibir feedback ao usuário (mensagem de sucesso ou erro)
+
+Redirecionar o usuário para a página de login após sucesso (ou logar automaticamente, dependendo da regra da empresa)
+
+Evitar duplicação de conta:
+
+O mesmo e-mail não pode ser usado duas vezes
+
+Se e-mail já existir, deve ser exibida mensagem: "E-mail já cadastrado"
+
+Design responsivo:
+
+Deve funcionar em desktop, tablet e mobile
+
+Formulário centralizado e visível sem necessidade de rolagem vertical
+
+Segurança:
+
+Os dados devem ser enviados via HTTPS
+
+A senha deve ser armazenada criptografada no backend
+
+✅ Critérios de Aceite:
+
+O formulário possui os campos: Nome, E-mail e Senha, todos com *indicativo de obrigatório.
+
+A validação impede envio do formulário caso algum campo esteja inválido ou vazio.
+
+O botão "Cadastrar" só é ativado quando os campos forem válidos.
+
+É exibida mensagem de erro se o e-mail já estiver em uso.
+
+Após cadastro bem-sucedido, o usuário é redirecionado ou informado sobre o sucesso do cadastro.
+
+Os dados enviados estão em conformidade com HTTPS.
+
+A interface está responsiva em diferentes dispositivos.
+
+Há teste funcional garantindo o fluxo de cadastro completo.
+
+Feedbacks visuais são exibidos em caso de erro no servidor ou conexão.
+
+</body>
+</html>
