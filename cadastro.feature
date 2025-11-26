@@ -13,26 +13,31 @@ Feature: Cadastro de Usuário
         When clico no botão "Cadastrar"   
         Then devo ver a mensagem "E-mail já cadastrado"
 
-     Scenario: Erro de servidor
+    Scenario: Erro de servidor
         Given que estou na página de cadastro
         And preencho o nome "ney" 
         And preencho e-mail "ney123@gmail.com"
         And preencho a senha "123456"      
         When clico no botão "Cadastrar"   
         Then devo ver a mensagem "Erro no servidor, tente novamente mais tarde"
+
+    Scenario: Campos obrigatórios não preenchidos
+        Given que estou na página de cadastro
+        And não preencho nenhum campo
+        When tento clicar no botão "Cadastrar"
+        Then devo ver a mensagem "Todos os campos são obrigatórios"
+        And o botão deve estar "Desabilitado"
+
     
     Scenario: Responsividade
     Given que acesso a página de cadastro em um dispositivo mobile
     Then o formulário deve estar centralizado e visível sem necessidade de rolagem vertical
-
-    
 
     Scenario Outline: Fazer cadastro
         Given que estou na página de cadastro
         And preencho o campo "<nome>", "<e-mail>", "<senha>"      
         When clico no botão "Cadastrar"   
         Then devo ver a mensagem "<mensagem>"
-
 
     Example: Cadastro de Usuário
         | nome        | e-mail               | senha     | mensagem                                     |
@@ -49,19 +54,9 @@ Scenario Outline: Fazer cadastro com botao desabilitado
         When clico no botão "Cadastrar"   
         Then devo ver a mensagem "<mensagem>"
 
-
     Example: Cadastro de Usuário
-        | nome        | e-mail               | senha     | mensagem                                     |
-        | ney         | neyteste@gmail.com   | 123456    | Cadastro realizado com sucesso               |
-        | ney         | ney$#_gmail.com      | 123456    | E-mail digitado é inválido                   | 
-        | n           | neyteste@gmail.com   | 123456    | O nome tem que ter no mínimo 3 caracteres    | 
-        | ney         | neyteste@gmail.com   | 123       | A Senha tem que ter no mínimo 6 caracteres   | 
-
-
-    
-       
-
-    
-
-
-
+        | nome        | e-mail               | senha     | mensagem                                     | botão "Cadastrar"
+        | ney         | neyteste@gmail.com   | 123456    | Cadastro realizado com sucesso               | Habilitado
+        | ney         | ney$#_gmail.com      | 123456    | E-mail digitado é inválido                   | Desabilitado
+        | n           | neyteste@gmail.com   | 123456    | O nome tem que ter no mínimo 3 caracteres    | Desabilitado
+        | ney         | neyteste@gmail.com   | 123       | A Senha tem que ter no mínimo 6 caracteres   | Desabilitado
